@@ -12,14 +12,17 @@
       :key='i'
       v-for='(el, i) in bestiary'
       :data='el' />
-    <h2>Kreaturenpunkte: XX</h2>
-    <h2>Schwierigkeitsgrad: XX</h2>
+    <h2>Kreaturenpunkte: {{kp}}</h2>
+    <h2>Schwierigkeitsgrad: {{sg}}</h2>
+    <!-- TODO -->
+    <p>TODO ♥ 20 / INI 0 / KB 3 / 🛡 6 / 🗡 -1 / MP 12 / Spruchl 4 / SG4</p>
   </div>
 </template>
 
 <script>
 import { alias } from '../data/bestiary'
 import Attribute from './Attribute.vue'
+import { mapState } from 'vuex'
 
 export default {
   components: {
@@ -29,7 +32,11 @@ export default {
     return {
       bestiary: alias
     }
-  }
+  },
+  computed: mapState({
+    kp: state => state.kpTotal,
+    sg: state => state.sg
+  })
 }
 </script>
 

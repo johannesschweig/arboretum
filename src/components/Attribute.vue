@@ -7,17 +7,21 @@
     <input
       v-if='data.bool'
       v-model='input'
-      type='checkbox'/>
+      type='checkbox'
+      @change='change'/>
     <input
       v-else
       type='number'
       v-model='input'
-      value='0'/>
+      value='0'
+      @change='change'/>
     <span> (KP: {{kp}})</span>
   </div>
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
+
 export default {
   props: {
     data: {
@@ -33,6 +37,18 @@ export default {
   computed: {
     kp () {
       return this.input * this.data.mod
+    }
+  },
+  methods: {
+    ...mapActions([
+      'set'
+    ]),
+    change() {
+      this.set({
+        short: this.data.short,
+        attr: this.input,
+        kp: this.kp
+      })
     }
   }
 }
