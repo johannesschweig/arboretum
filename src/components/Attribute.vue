@@ -4,8 +4,11 @@
       v-if='data.bool'
       v-model='input'
       type='checkbox'
+      :id='data.short'
+      :name='data.short'
       @change='change'/>
-    <div
+    <label
+      :for='data.short'
       class='label'>
       {{ data.long }}
       <template v-if='data.emoji'>
@@ -16,7 +19,7 @@
         <span class='tooltiptext'>{{ data.help }}</span>
       </span>
       
-    </div>
+    </label>
     <input
       v-if='!data.bool'
       type='number'
@@ -79,6 +82,7 @@ input[type='number'] {
   font-size: 14px;
   margin: 0 5px;
   text-align: center;
+  cursor: help;
 }
 
 /* Tooltip text */

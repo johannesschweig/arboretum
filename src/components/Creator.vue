@@ -10,10 +10,12 @@
           <input id='name'/>
         </div> -->
         <!-- Attributes -->
-        <attribute
-          :key='i'
-          v-for='(el, i) in bestiary'
-          :data='el' />
+        <div id='attributes'>
+          <attribute
+            :key='i'
+            v-for='(el, i) in bestiary'
+            :data='el' />
+        </div>
       </div>
       <div id='right'>
         <h3>Kreaturenpunkte: {{kp}}</h3>
@@ -71,6 +73,14 @@ input {
 
 #container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 2fr;
+  column-gap: 100px;
+}
+
+#attributes {
+  display: grid;
+  grid-template-rows: repeat(14, 1fr);
+  column-gap: 30px;
+  grid-auto-flow: column;
 }
 </style>
