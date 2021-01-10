@@ -14,8 +14,7 @@
       :data='el' />
     <h2>Kreaturenpunkte: {{kp}}</h2>
     <h2>Schwierigkeitsgrad: {{sg}}</h2>
-    <!-- TODO -->
-    <p>TODO ♥ 20 / INI 0 / KB 3 / 🛡 6 / 🗡 -1 / MP 12 / Spruchl 4 / SG4</p>
+    <p>{{ attrString }}</p>
   </div>
 </template>
 
@@ -23,6 +22,7 @@
 import { alias } from '../data/bestiary'
 import Attribute from './Attribute.vue'
 import { mapState } from 'vuex'
+import { getAttrString } from '../utils'
 
 export default {
   components: {
@@ -33,10 +33,16 @@ export default {
       bestiary: alias
     }
   },
-  computed: mapState({
-    kp: state => state.kpTotal,
-    sg: state => state.sg
-  })
+  computed: {
+    ...mapState({
+      kp: state => state.kpTotal,
+      sg: state => state.sg,
+      attr: state => state.attr
+    }),
+    attrString() {
+      return getAttrString(this.attr)
+    }
+  }
 }
 </script>
 

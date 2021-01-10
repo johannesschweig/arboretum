@@ -3,6 +3,9 @@
     <div
       class='label'>
       {{ data.long }}
+      <template v-if='data.emoji'>
+        {{data.emoji }}
+      </template>
     </div>
     <input
       v-if='data.bool'
