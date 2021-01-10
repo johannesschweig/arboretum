@@ -127,7 +127,7 @@ export const alias = [{
     long: 'Stirbt nicht',
     mod: 240,
     bool: true,
-    help: 'Die Kreatur wird beliebig oft wieder innerhalb 1w10 Runden auferstehen, sofern sie nicht tatsächlich "zersötrt" wird. Die tastächlich Zerstörung kann eine spezielle Handlung erfordern, wie beispielsweise das (restlose) Verbrennen des leblosen Körpers.'
+    help: 'Die Kreatur wird beliebig oft wieder innerhalb 1w10 Runden auferstehen, sofern sie nicht tatsächlich "zerstört" wird. Die tastächlich Zerstörung kann eine spezielle Handlung erfordern, wie beispielsweise das (restlose) Verbrennen des leblosen Körpers.'
   },
   {
     short: 'yielding',
@@ -495,6 +495,186 @@ export const creatures = [{
       s: 0
     }
   },
+  {
+    name: 'Stadtwache',
+    weapon: 'div. hier Kurzschwert',
+    info: 'TODO Schade nach waffe, schatz c',
+    attr: {
+      tp: 30,
+      ini: 0,
+      kb: 5,
+      rb: 7,
+      s: -1
+    }
+  },
+  {
+    name: 'Hauptmann',
+    weapon: 'Langschwert',
+    info: 'TODO schatz d; begleitung 6 stadtwachen',
+    attr: {
+      tp: 50,
+      ini: 1,
+      kb: 7,
+      rb: 8,
+      s: 1
+    }
+  },
+  {
+    name: 'Ritter',
+    weapon: 'Langschwert',
+    info: 'TODO schatz e, reiten 4 streitross',
+    attr: {
+      tp: 88,
+      ini: 0,
+      kb: 10,
+      rb: 10,
+      s: 1
+    }
+  },
+  {
+    name: 'Zauberlehrling',
+    weapon: 'Dolch',
+    info: 'TODO schatz b',
+    attr: {
+      tp: 12,
+      ini: -1,
+      kb: 1,
+      rb: 5,
+      s: -2,
+      mp: 9,
+      spelll: 3
+    }
+  },
+  {
+    name: 'Weißer Zauberer',
+    weapon: 'Dolch',
+    info: 'TODO schatz d',
+    attr: {
+      tp: 32,
+      ini: 0,
+      kb: 3,
+      rb: 6,
+      s: -2,
+      mp: 60,
+      spelll: 9
+    }
+  },
+  {
+    name: 'Wandernder Priester',
+    weapon: 'Kriegshammer',
+    info: 'TODO schatz d, heiliges symbol',
+    attr: {
+      tp: 32,
+      ini: 0,
+      kb: 2,
+      rb: 6,
+      s: 1,
+      mp: 24,
+      spelll: 6
+    }
+  },
+  {
+    name: 'Illusionist',
+    weapon: 'Schleuder',
+    info: 'TODO schatz d, gnom',
+    attr: {
+      tp: 24,
+      ini: 1,
+      kb: 2,
+      rb: 7,
+      s: -1,
+      mp: 40,
+      spelll: 7
+    }
+  },
+  {
+    name: 'Schwarzer Zauberer',
+    weapon: 'Stab',
+    info: 'TODO schatz f',
+    attr: {
+      tp: 40,
+      ini: 0,
+      kb: 3,
+      rb: 6,
+      s: -1,
+      mp: 66,
+      spelll: 13
+    }
+  },
+  {
+    name: 'Taschendieb',
+    weapon: 'Florett',
+    info: 'TODO (Halbling) schatz d, list 2',
+    attr: {
+      tp: 14,
+      ini: 2,
+      kb: 2,
+      rb: 7,
+      s: 0
+    }
+  },
+  {
+    name: 'Bandit',
+    weapon: 'Flegel',
+    info: 'TODO schatz c',
+    attr: {
+      tp: 20,
+      ini: 1,
+      kb: 3,
+      rb: 7,
+      s: 1
+    }
+  },
+  {
+    name: 'Assassine',
+    weapon: 'Armbrust',
+    info: 'TODO Gifte, List 6, Athletik 6, schatz e',
+    attr: {
+      tp: 36,
+      ini: 2,
+      kb: 6,
+      rb: 6,
+      s: 1
+    }
+  },
+  {
+    name: 'Spurenleser',
+    weapon: 'Langbogen',
+    info: 'TODO schatz d, natur 3',
+    attr: {
+      tp: 24,
+      ini: 1,
+      kb: 4,
+      rb: 6,
+      s: 0,
+      mp: 6
+    }
+  },
+  {
+    name: 'Hüter des Waldes',
+    weapon: 'Langbogen',
+    info: 'TODO Elf, schatz e, heilkräuter, natur 5',
+    attr: {
+      tp: 46,
+      ini: 2,
+      kb: 5,
+      rb: 6,
+      s: 0,
+      mp: 16
+    }
+  },
+  {
+    name: 'Schildwache',
+    weapon: 'Einhand-Axt',
+    info: 'TODO Zwerg, schatz e',
+    attr: {
+      tp: 48,
+      ini: -1,
+      kb: 8,
+      rb: 7,
+      s: 0
+    }
+  }
 ]
 
 export const base = {
