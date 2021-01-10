@@ -13,13 +13,13 @@ export const alias = [
     short: 'ini',
     long: 'Initiative',
     mod: 5,
-    help: 'Der Initiative-Wert inklusive aller Bonusse und Malusse (insbesondere die durch Waffen)'
+    help: 'Der Initiative-Wert inklusive aller Bonusse und Malusse (insbesondere die durch Waffen). Maximaler negative Initiative -3.'
   },
   {
     short: 'kb',
     long: 'Kampfbonus',
     mod: 20,
-    help: 'Der Kampfbonus inklusive aller Bonusse und Malusse'
+    help: 'Der Kampfbonus inklusive aller Bonusse und Malusse. Mehrfachangriffe werden aufsummiert.'
   },
   {
     short: 'rb',
@@ -33,7 +33,7 @@ export const alias = [
     long: 'Schaden',
     mod: 10,
     emoji: '🗡️',
-    help: 'Der Schadensbonus inklusive aller Bonusse und Malusse (insbesondere die durch Waffen)'
+    help: 'Der Schadensbonus inklusive aller Bonusse und Malusse (insbesondere die durch Waffen). Maximaler negativer Schaden -3.'
   },
   {
     short: 'mb',
