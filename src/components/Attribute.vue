@@ -1,5 +1,10 @@
 <template>
   <div class='row'>
+    <input
+      v-if='data.bool'
+      v-model='input'
+      type='checkbox'
+      @change='change'/>
     <div
       class='label'>
       {{ data.long }}
@@ -8,17 +13,12 @@
       </template>
     </div>
     <input
-      v-if='data.bool'
-      v-model='input'
-      type='checkbox'
-      @change='change'/>
-    <input
-      v-else
+      v-if='!data.bool'
       type='number'
       v-model='input'
       value='0'
       @change='change'/>
-    <span> (KP: {{kp}})</span>
+    <!-- <span> (KP: {{kp}})</span> -->
   </div>
 </template>
 
@@ -58,7 +58,9 @@ export default {
 </script>
 
 <style scoped>
-
+input[type='checkbox'] {
+  margin-right: 8px;
+}
 
 input[type='number'] {
   width: 50px;

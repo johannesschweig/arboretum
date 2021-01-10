@@ -1,20 +1,26 @@
 <template>
   <div>
     <h1>Arboretum</h1>
-    <p>Erschaffe deine Arborea-Kreaturen hier</p>
-    <!-- Name -->
-    <div class='row'>
-      <div class='label'>Name</div>
-      <input id='name'/>
+    <div id='container'>
+      <div id='left'>
+        <p>Erschaffe deine Arborea-Kreaturen hier</p>
+        <!-- Name -->
+        <!-- <div class='row'>
+          <div class='label'>Name</div>
+          <input id='name'/>
+        </div> -->
+        <!-- Attributes -->
+        <attribute
+          :key='i'
+          v-for='(el, i) in bestiary'
+          :data='el' />
+      </div>
+      <div id='right'>
+        <h3>Kreaturenpunkte: {{kp}}</h3>
+        <h3>Schwierigkeitsgrad: {{sg}}</h3>
+        <p>{{ attrString }}</p>
+      </div>
     </div>
-    <!-- Attributes -->
-    <attribute
-      :key='i'
-      v-for='(el, i) in bestiary'
-      :data='el' />
-    <h2>Kreaturenpunkte: {{kp}}</h2>
-    <h2>Schwierigkeitsgrad: {{sg}}</h2>
-    <p>{{ attrString }}</p>
   </div>
 </template>
 
@@ -49,7 +55,7 @@ export default {
 <style>
 .label {
   font-size: 16px;
-  width: 150px;
+  width: 180px;
   display: inline-block;
 }
 
@@ -61,5 +67,10 @@ export default {
 <style scoped>
 input {
   width: 200px;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 </style>
