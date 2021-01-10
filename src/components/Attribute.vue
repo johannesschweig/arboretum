@@ -17,13 +17,13 @@
         ?
         <span class='tooltiptext'>{{ data.help }}</span>
       </span>
-      
     </label>
     <input
       v-if='!data.bool'
       type='number'
       v-model='input'
-      value='0'/>
+      value='0'
+      :class='{"highlight": input != 0 }'/>
   </div>
 </template>
 
@@ -65,6 +65,13 @@ input[type='checkbox'] {
 
 input[type='number'] {
   width: 50px;
+}
+
+.highlight {
+  --highlight: #3584e4;
+  -webkit-box-shadow: 0px 0px 0px 1px var(--highlight);
+  -moz-box-shadow: 0px 0px 0px 1px var(--highlight);
+  box-shadow: 0px 0px 0px 1px var(--highlight);
 }
 
 /* Tooltip container */
