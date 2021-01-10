@@ -1,35 +1,15 @@
 <template>
   <div>
     <h1>Arboretum</h1>
+    <p>Erschaffe deine Arborea-Kreaturen hier</p>
     <div id='container'>
       <div id='left'>
-        <p>Erschaffe deine Arborea-Kreaturen hier</p>
-        <!-- Name -->
-        <div class='row'>
-            <label
-              class='label'
-              for='template'>
-              Vorlage
-            </label>
-            <!-- replace with string of creatures -->
-            <input
-              list='creatures'
-              name='template'
-              id='template'
-              v-model='template'
-              @change='setTemplate'>
-            <datalist id='creatures'>
-              <option
-                v-for='(c, i) in alphabeticCreatures'
-                :key='i'
-                :value='c'/>
-            </datalist>
-        </div>
+        <TemplateSelector />
         <!-- Attributes -->
         <div id='attributes'>
-          <attribute
+          <Attribute
             :key='i'
-            v-for='(el, i) in bestiary'
+            v-for='(el, i) in alias'
             :data='el' />
         </div>
       </div>
@@ -43,20 +23,20 @@
 </template>
 
 <script>
-import { alias, creatures } from '../data/bestiary'
+import { alias } from '../data/bestiary'
 import Attribute from './Attribute.vue'
+import TemplateSelector from './TemplateSelector.vue'
 import { mapActions, mapState } from 'vuex'
 import { getAttrString } from '../utils'
 
 export default {
   components: {
-    'attribute': Attribute
+    Attribute,
+    TemplateSelector
   },
   data () {
     return {
-      bestiary: alias,
-      creatures,
-      template: ''
+      alias,
     }
   },
   computed: {
@@ -67,19 +47,9 @@ export default {
     }),
     attrString() {
       return getAttrString(this.attr)
-    },
-    alphabeticCreatures() {
-      return this.creatures.map(c => c.name).sort()
     }
   },
-  methods: {
-    ...mapActions([
-      'batchSet'
-    ]),
-    setTemplate() {
-      this.batchSet(this.template)
-    }
-  }
+  
 }
 </script>
 
