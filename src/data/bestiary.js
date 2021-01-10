@@ -1,8 +1,6 @@
-// TODO add descriptions
 // TODO ungenau RB, Zauberresistenz, regeneration, Nachladen, Elementare Angriffe, Gift
 
-export const alias = [
-  {
+export const alias = [{
     short: 'tp',
     long: 'Trefferpunkte',
     mod: 3,
@@ -36,7 +34,7 @@ export const alias = [
     help: 'Der Schadensbonus inklusive aller Bonusse und Malusse (insbesondere die durch Waffen). Maximaler negativer Schaden -3.'
   },
   {
-    short: 'mb',
+    short: 'mp',
     long: 'Magiepunkte',
     mod: 5,
     help: 'Magiepunkte, die der Kreatur zur Verfügung stehen'
@@ -159,4 +157,342 @@ export const alias = [
     bool: true,
     help: 'Die Kreatur ist gegenüber einer bestimmten Sache extrem empfindlich und erhält bei Einwirkungen mit der bestimmten Sache vierfachen Schaden. (Beispielsweise Wasser bei einem Feuerwesen.)'
   }
+]
+
+// list of creatures
+export const creatures = [{
+    name: 'Bär',
+    weapon: 'Pranken oder Maul',
+    info: 'TODO',
+    attr: {
+      tp: 25,
+      ini: 1,
+      kb: 6,
+      rb: 6,
+      s: 1
+    }
+  },
+  {
+    name: 'Berglöwe',
+    weapon: 'Krallen oder Maul',
+    info: 'TODO',
+    attr: {
+      tp: 15,
+      ini: 2,
+      kb: 8,
+      rb: 6,
+      s: 1
+    }
+  },
+  {
+    name: 'Dämon',
+    weapon: 'Waffe',
+    info: 'TODO Schwarze Magie Rang 3 Schatz E',
+    attr: {
+      tp: 30,
+      ini: 1,
+      kb: 6,
+      rb: 9,
+      s: 0,
+      mp: 20,
+      spelll: 3,
+      targetedspells: 3
+    }
+  },
+  {
+    name: 'Feuerelementar',
+    weapon: 'Elementarwaffe',
+    info: 'TODO 2 elementarschaden feuer',
+    attr: {
+      tp: 30,
+      ini: 0,
+      kb: 6,
+      rb: 8,
+      s: 1,
+      magres: 1,
+      reg: 3,
+      elemenatt: 2
+    }
+  },
+  {
+    name: 'Wasserelementar',
+    weapon: 'Elementarwaffe',
+    info: 'TODO',
+    attr: {
+      tp: 60,
+      ini: 0,
+      kb: 6,
+      rb: 8,
+      s: 1,
+      magres: 1,
+      reg: 3
+    }
+  },
+  {
+    name: 'Erdeelementar',
+    weapon: 'Elementarwaffe',
+    info: 'TODO',
+    attr: {
+      tp: 30,
+      ini: 0,
+      kb: 6,
+      rb: 10,
+      s: 1,
+      magres: 1,
+      reg: 3,
+      elemenatt: 0
+    }
+  },
+  {
+    name: 'Luftelementar',
+    weapon: 'Elementarwaffe',
+    info: 'TODO',
+    attr: {
+      tp: 30,
+      ini: 0,
+      kb: 6,
+      rb: 8,
+      s: 1,
+      magres: 1,
+      reg: 3,
+      flying: 1,
+      bodiless: 1
+    }
+  },
+  {
+    name: 'Gargoyle',
+    weapon: 'Krallen',
+    info: 'TODO schwarze magie rang 2, schatz e',
+    attr: {
+      tp: 50,
+      ini: -1,
+      kb: 8,
+      rb: 10,
+      s: 2,
+      mp: 6,
+      spelll: 2,
+      targetedspells: 3,
+      reg: 1,
+      flying: 1
+    }
+  },
+  {
+    name: 'Geist',
+    weapon: 'Krallen',
+    info: 'TODO schatz c',
+    attr: {
+      tp: 20,
+      ini: 0,
+      kb: 2,
+      rb: 8,
+      s: -1,
+      fear: 1,
+      bodiless: 1
+    }
+  },
+  {
+    name: 'Ghul',
+    weapon: 'Klauen oder Biss',
+    info: 'TODO schatz c; krankheiten wundbrand potentiell',
+    attr: {
+      tp: 40,
+      ini: 0,
+      kb: 6,
+      rb: 6,
+      s: 1,
+      fear: 1
+    }
+  },
+  {
+    name: 'Goblin',
+    weapon: 'Dolch',
+    info: 'TODO schatz a',
+    attr: {
+      tp: 4,
+      ini: 0,
+      kb: 2,
+      rb: 6,
+      s: -2
+    }
+  },
+  {
+    name: 'Harpyie',
+    weapon: 'Krallen',
+    info: 'TODO freie magie 4; schatz e',
+    attr: {
+      tp: 30,
+      ini: 2,
+      kb: 10,
+      rb: 7,
+      s: 1,
+      mp: 12,
+      spelll: 4,
+      flying: 1,
+      scream: 1
+    }
+  },
+  {
+    name: 'Kraken',
+    weapon: 'Mehrfachangriff: acht Angriffe mit Tentakel',
+    info: 'TODO schatz e',
+    attr: {
+      tp: 120,
+      ini: -2,
+      kb: 2,
+      rb: 6,
+      s: 0
+    }
+  },
+  {
+    name: 'Lindwurm',
+    weapon: 'Krallen/Schwanz/Feueratem',
+    info: 'TODO Krallen 8/ 8Schwanz/Feueratem 12 (1.5m breiter Strahl 12m lang), freie magie bis 6, schwarze magie bis 2, schatz g',
+    attr: {
+      tp: 400,
+      ini: 1,
+      kb: 0,
+      rb: 11,
+      s: 3,
+      mp: 80,
+      spelll: 8,
+      magres: 5,
+      reg: 5
+    }
+  },
+  {
+    name: 'Meerechse',
+    weapon: 'Biss',
+    info: 'TODO schatz c',
+    attr: {
+      tp: 50,
+      ini: 2,
+      kb: 8,
+      rb: 8,
+      s: 1
+    }
+  },
+  {
+    name: 'Oger',
+    weapon: 'Keule/Morgenstern/Flegel/Einhand-Axt (Schade nach Waffe)',
+    info: 'TODO schatz B',
+    attr: {
+      tp: 30,
+      ini: -1,
+      kb: 8,
+      rb: 7,
+      s: 0
+    }
+  },
+  {
+    name: 'Ork',
+    weapon: 'Kurzbogen/Morgenstern/Kurzschwert/Einhand-Axt (Schaden nach Waffe)',
+    info: 'TODO schatz b',
+    attr: {
+      tp: 12,
+      ini: 0,
+      kb: 3,
+      rb: 7,
+      s: 0
+    }
+  },
+  {
+    name: 'Riese',
+    weapon: 'Keule/Steine',
+    info: 'TODO schatz F / kb keule 15 / kb steine 8; riese steinwurf malus auf entfernung',
+    attr: {
+      tp: 250,
+      ini: -2,
+      kb: 11,
+      rb: 8,
+      s: 0
+    }
+  },
+  {
+    name: 'Riesenechse',
+    weapon: 'Biss',
+    info: 'TODO schatz c',
+    attr: {
+      tp: 60,
+      ini: 2,
+      kb: 9,
+      rb: 8,
+      s: 1
+    }
+  },
+  {
+    name: 'Riesenmoskitos',
+    weapon: 'Stachel',
+    info: 'TODO 10 tiere',
+    attr: {
+      tp: 10,
+      ini: 2,
+      kb: 2,
+      rb: 5,
+      s: -2,
+      flying: 1
+    }
+  },
+  {
+    name: 'Riesenspinne',
+    weapon: 'Stachel',
+    info: 'TODO schatz E; gift 3 runden lähmen / ms 10 befreien',
+    attr: {
+      tp: 23,
+      ini: 2,
+      kb: 6,
+      rb: 7,
+      s: 1,
+      venom: 3
+    }
+  },
+  {
+    name: 'Skelett',
+    weapon: 'Waffe, schaden nach waffe',
+    info: 'TODO schatz c',
+    attr: {
+      tp: 8,
+      ini: 1,
+      kb: 2,
+      rb: 5,
+      s: 0
+    }
+  },
+  {
+    name: 'Troll',
+    weapon: 'Keule/Morgenstern/Flegel/einhand-axt, Schaden nach waffe',
+    info: 'TODO schatz c',
+    attr: {
+      tp: 30,
+      ini: 0,
+      kb: 8,
+      rb: 7,
+      s: 0,
+      reg: 1
+    }
+  },
+  {
+    name: 'Wolf',
+    weapon: 'Maul',
+    info: 'TODO ',
+    attr: {
+      tp: 12,
+      ini: 2,
+      kb: 4,
+      rb: 6,
+      s: 1,
+      pack: 1
+    }
+  },
+  {
+    name: 'Zombie',
+    weapon: 'Klauen',
+    info: 'TODO schatz c',
+    attr: {
+      tp: 20,
+      ini: -2,
+      kb: 1,
+      rb: 5,
+      s: 0
+    }
+  },
 ]

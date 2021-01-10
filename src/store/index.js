@@ -12,7 +12,7 @@ export default new Vuex.Store({
       kb: 0,
       rb: 0,
       s: 0,
-      mb: 0,
+      mp: 0,
       spelll: 0,
       targetedspells: 0,
       magres: 0,
@@ -38,7 +38,7 @@ export default new Vuex.Store({
       kb: 0,
       rb: 0,
       s: 0,
-      mb: 0,
+      mp: 0,
       spelll: 0,
       targetedspells: 0,
       magres: 0,
@@ -72,31 +72,12 @@ export default new Vuex.Store({
       }
       state.kpTotal = sum
       // compute new difficulty level
-      // TODO clean this mess up
-      if(state.kpTotal <= 0) {
-        state.sg = 0
-      } else if (state.kpTotal < 120) {
-        state.sg = 1
-      } else if (state.kpTotal < 180) {
-        state.sg = 2
-      } else if (state.kpTotal < 240) {
-        state.sg = 3
-      } else if (state.kpTotal < 300) {
-        state.sg = 4
-      } else if (state.kpTotal < 360) {
-        state.sg = 5
-      } else if (state.kpTotal < 420) {
-        state.sg = 6
-      } else if (state.kpTotal < 480) {
-        state.sg = 7
-      } else if (state.kpTotal < 540) {
-        state.sg = 8
-      } else if (state.kpTotal < 600) {
-        state.sg = 9
-      } else if (state.kpTotal < 800) {
-        state.sg = 10
-      } else if (state.kpTotal < 1000) {
-        state.sg = 11
+      let ranks = [1, 120, 180, 240, 300, 360, 420, 480, 540, 600, 800, 1000, 1200, 1400, 1600, 2000, 2400, 2800, 3200, 3600, 4200]
+      for (let i = 0; i < ranks.length; i++) {
+        if (state.kpTotal < ranks[i]) {
+          state.sg = i
+          break
+        }
       }
     }
   },
