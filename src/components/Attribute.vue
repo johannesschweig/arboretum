@@ -5,8 +5,7 @@
       v-model='input'
       type='checkbox'
       :id='data.short'
-      :name='data.short'
-      @change='change'/>
+      :name='data.short'/>
     <label
       :for='data.short'
       class='label'>
@@ -24,8 +23,7 @@
       v-if='!data.bool'
       type='number'
       v-model='input'
-      value='0'
-      @change='change'/>
+      value='0'/>
   </div>
 </template>
 
@@ -39,27 +37,23 @@ export default {
       required: true
     }
   },
-  data () {
-    return {
-      input: 0
-    }
-  },
   computed: {
-    kp () {
-      return this.input * this.data.mod
+    input: {
+      get() {
+        return this.$store.state.attr[this.data.short]
+      },
+      set (value) {
+        this.set({
+          short: this.data.short,
+          attr:value 
+        })
+      }
     }
   },
   methods: {
     ...mapActions([
       'set'
-    ]),
-    change() {
-      this.set({
-        short: this.data.short,
-        attr: this.input,
-        kp: this.kp
-      })
-    }
+    ])
   }
 }
 </script>

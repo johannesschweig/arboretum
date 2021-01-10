@@ -5,10 +5,26 @@
       <div id='left'>
         <p>Erschaffe deine Arborea-Kreaturen hier</p>
         <!-- Name -->
-        <!-- <div class='row'>
-          <div class='label'>Name</div>
-          <input id='name'/>
-        </div> -->
+        <div class='row'>
+            <label
+              class='label'
+              for='template'>
+              Vorlage
+            </label>
+            <!-- replace with string of creatures -->
+            <input
+              list='creatures'
+              name='template'
+              id='template'
+              v-model='template'
+              @change='setTemplate'>
+            <datalist id='creatures'>
+              <option
+                v-for='(c, i) in alphabeticCreatures'
+                :key='i'
+                :value='c'/>
+            </datalist>
+        </div>
         <!-- Attributes -->
         <div id='attributes'>
           <attribute
@@ -27,9 +43,9 @@
 </template>
 
 <script>
-import { alias } from '../data/bestiary'
+import { alias, creatures } from '../data/bestiary'
 import Attribute from './Attribute.vue'
-import { mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import { getAttrString } from '../utils'
 
 export default {
@@ -38,7 +54,9 @@ export default {
   },
   data () {
     return {
-      bestiary: alias
+      bestiary: alias,
+      creatures,
+      template: ''
     }
   },
   computed: {
@@ -49,6 +67,17 @@ export default {
     }),
     attrString() {
       return getAttrString(this.attr)
+    },
+    alphabeticCreatures() {
+      return this.creatures.map(c => c.name).sort()
+    }
+  },
+  methods: {
+    ...mapActions([
+      'batchSet'
+    ]),
+    setTemplate() {
+      this.batchSet(this.template)
     }
   }
 }

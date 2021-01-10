@@ -3,8 +3,8 @@ import { alias } from './data/bestiary'
 // object, index
 function getAttrPiece(obj) {
   let str = ''
-  // check if different from 0
-  if (obj.attr > 0) {
+  // check if different from 0 or in the top 5
+  if (obj.attr != 0 || ['tp', 'ini', 'kb', 'rb', 's'].includes(obj.short)) {
     let short
     let val = obj.attr
     // check if emoji
@@ -18,10 +18,6 @@ function getAttrPiece(obj) {
     }
     str = `${short} ${val} / `
   } else {
-    // check if in` the top 5 `
-    if (['tp', 'ini', 'kb', 'rb', 's'].includes(obj.short)) {
-      str = ''
-    }
   }
   return str
 }
