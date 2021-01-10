@@ -11,6 +11,11 @@
       <template v-if='data.emoji'>
         {{data.emoji }}
       </template>
+      <span class='tooltip'>
+        ?
+        <span class='tooltiptext'>{{ data.help }}</span>
+      </span>
+      
     </div>
     <input
       v-if='!data.bool'
@@ -18,7 +23,6 @@
       v-model='input'
       value='0'
       @change='change'/>
-    <!-- <span> (KP: {{kp}})</span> -->
   </div>
 </template>
 
@@ -64,5 +68,36 @@ input[type='checkbox'] {
 
 input[type='number'] {
   width: 50px;
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted #424242;
+  color: #424242;
+  font-size: 14px;
+  margin: 0 5px;
+  text-align: center;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 300px;
+  background-color: #424242;
+  color: #fff;
+  padding: 5px;
+  border-radius: 2px;
+  text-align: left;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 </style>
