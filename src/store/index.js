@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { base, alias, creatures } from '../data/bestiary'
+import { getKP, getSG } from '../utils'
 
 Vue.use(Vuex)
 // TODO create attr and kp on the fly from bestiary.js
@@ -74,7 +75,8 @@ export default new Vuex.Store({
           break
         }
       }
-      state.kp[payload.short] = payload.attr * mod
+      // find mod
+      state.kp[payload.short] = getKP(payload.attr, mod)
     },
     // recalculate creature points and difficulty level
     calcKpSg (state) {
@@ -84,21 +86,7 @@ export default new Vuex.Store({
         sum += value
       }
       state.kpTotal = sum
-      // compute new difficulty level
-      //          [1....., 2  , 3  , 4  ,...]
-      let ranks = [1, 120, 180, 240, 300, 360, 420, 480, 540, 600, 800, 1000, 1200, 1400, 1600, 2000, 2400, 2800, 3200, 3600, 4200]
-      let last = 0 // last creature points level
-      for (let i = 0; i < ranks.length; i++) {
-        if (state.kpTotal < ranks[i]) {
-          // partial sg
-          let prog = state.kpTotal - last
-          let spread = ranks[i] - last
-          let increment = Math.round(prog / spread * 10) / 10
-          state.sg = i + increment
-          break
-        }
-        last = ranks[i] 
-      }
+      state.sg = getSG(state.kpTotal)
     }
   },
   actions: {

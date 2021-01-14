@@ -21,7 +21,7 @@
     <input
       v-if='!data.bool'
       type='number'
-      v-model='input'
+      v-model.number='input'
       value='0'
       :class='{"highlight": input != 0 }'/>
   </div>

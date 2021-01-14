@@ -33,3 +33,38 @@ export function getAttrString(attr) {
   }
   return str
 }
+
+export function getKP(attr, mod) {
+  // attr is 0
+  if (attr === 0) {
+    return 0
+  }
+  // mod is an array
+  if (Array.isArray(mod)) {
+    if (attr > mod.length) { // attr not in range
+      let last = mod[mod.length - 1]
+      let next = (attr - mod.length) * (last - mod[mod.length - 2])
+      return last + next
+    } else {
+      return mod[attr - 1]
+    }
+  }
+  return attr * mod
+}
+
+export function getSG(kp) {
+  // compute new difficulty level
+  //          [1....., 2  , 3  , 4  ,...]
+  let ranks = [1, 120, 180, 240, 300, 360, 420, 480, 540, 600, 800, 1000, 1200, 1400, 1600, 2000, 2400, 2800, 3200, 3600, 4200]
+  let last = 0 // last creature points level
+  for (let i = 0; i < ranks.length; i++) {
+    if (kp < ranks[i]) {
+      // partial sg
+      let prog = kp - last
+      let spread = ranks[i] - last
+      let increment = Math.round(prog / spread * 10) / 10
+      return i + increment
+    }
+    last = ranks[i] 
+  }
+}

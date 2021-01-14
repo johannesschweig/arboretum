@@ -1,4 +1,4 @@
-// TODO ungenau RB, Zauberresistenz, regeneration, Nachladen, Elementare Angriffe, Gift
+// TODO spruchl inaccurate
 
 export const alias = [{
     short: 'tp',
@@ -22,7 +22,7 @@ export const alias = [{
   {
     short: 'rb',
     long: 'Rüstungsbonus',
-    mod: 10,
+    mod: [ 10, 20, 30, 40, 50, 75, 100, 125 ],
     emoji: '🛡️',
     help: 'Der Rüstungswert der Kreatur. Dieser kann auch durch Magie oder durch seine Art/Konstruktion zustande kommen.'
   },
@@ -54,25 +54,25 @@ export const alias = [{
   {
     short: 'magres',
     long: 'Zauberresistenz',
-    mod: 15,
+    mod: [ 15, 30, 45, 60, 75, 95, 115, 135, 155, 175, 195 ],
     help: 'Wenn eine Kreatur gegen Zauber resistent ist, dann erhält sie einen Bonus in der angegebenen Höhe auf ihre Rüstung gegen gezielte Zauber.'
   },
   {
     short: 'reg',
     long: 'Regeneration',
-    mod: 15,
+    mod: [ 15, 30, 45, 60, 75, 95, 115, 135, 155, 175, 195 ],
     help: 'Die Fähigkeit einer Kreatur, Trefferpunkte von Natur aus wiederzuerhalten. Üblicherweise gewinnt die Kreatur so viele TP pro Runde wieder, wie dort als Zahl angegeben sind. Beispielsweise würde Regeneration 2 bedeuten, dass die Kreatur 2TP pro Runde regeneriert.'
   },
   {
     short: 'reload',
     long: 'Nachladen',
-    mod: 30,
+    mod: [ 30, 60, 90, 120, 150, 200, 250, 300, 350, 400, 500 ],
     help: 'Diese besondere Eigenschaft regeneriert Magiepunkte pro Runde.'
   },
   {
     short: 'elemenatt',
     long: 'Elementare Angriffe',
-    mod: 15,
+    mod: [ 15, 30, 45, 60, 75, 95, 115, 135, 155, 175, 195 ], 
     help: 'Eine Kreatur, die über diese Besondere Eigenschaft verfügt, richtet zusätzlich zum normalen Schaden - der ebenfalls dem Element schon entspringt, noch einen Schaden in Höhe des hier angegeben Wertes an. Elementarangriffe können Sekundärschäden verursachen. Ein Feuerschaden kann beispielsweise auch Entzünden.'
   },
   {
@@ -84,7 +84,7 @@ export const alias = [{
   {
     short: 'venom',
     long: 'Gift',
-    mod: 30,
+    mod: [ 30, 60, 90, 120, 150, 210, 270, 330, 390, 450, 650 ],
     help: 'Der Biss einiger Tiere oder der Verzehr bestimmter Pflanzen kann giftig sein.'
   },
   {
@@ -163,7 +163,8 @@ export const alias = [{
 export const creatures = [{
     name: 'Bär',
     weapon: 'Pranken oder Maul',
-    info: 'TODO',
+    orgSg: 4, 
+    info: 'Orgsg 4',
     attr: {
       tp: 25,
       ini: 1,
@@ -175,7 +176,7 @@ export const creatures = [{
   {
     name: 'Berglöwe',
     weapon: 'Krallen oder Maul',
-    info: 'TODO',
+    info: 'Orgsg 4',
     attr: {
       tp: 15,
       ini: 2,
@@ -187,7 +188,7 @@ export const creatures = [{
   {
     name: 'Dämon',
     weapon: 'Waffe',
-    info: 'TODO Schwarze Magie Rang 3 Schatz E',
+    info: 'Schwarze Magie Rang 3 Schatz E, Orgsg 6',
     attr: {
       tp: 30,
       ini: 1,
@@ -202,7 +203,7 @@ export const creatures = [{
   {
     name: 'Feuerelementar',
     weapon: 'Elementarwaffe',
-    info: 'TODO 2 elementarschaden feuer',
+    info: '2 elementarschaden feuer, Orgsg 6',
     attr: {
       tp: 30,
       ini: 0,
@@ -217,7 +218,7 @@ export const creatures = [{
   {
     name: 'Wasserelementar',
     weapon: 'Elementarwaffe',
-    info: 'TODO',
+    info: 'Orgsg 6',
     attr: {
       tp: 60,
       ini: 0,
@@ -231,7 +232,7 @@ export const creatures = [{
   {
     name: 'Erdeelementar',
     weapon: 'Elementarwaffe',
-    info: 'TODO',
+    info: 'Orgsg 6',
     attr: {
       tp: 30,
       ini: 0,
@@ -246,7 +247,7 @@ export const creatures = [{
   {
     name: 'Luftelementar',
     weapon: 'Elementarwaffe',
-    info: 'TODO',
+    info: 'Orgsg 6',
     attr: {
       tp: 30,
       ini: 0,
@@ -262,7 +263,7 @@ export const creatures = [{
   {
     name: 'Gargoyle',
     weapon: 'Krallen',
-    info: 'TODO schwarze magie rang 2, schatz e',
+    info: 'schwarze magie rang 2, schatz e, Orgsg 8',
     attr: {
       tp: 50,
       ini: -1,
@@ -279,7 +280,7 @@ export const creatures = [{
   {
     name: 'Geist',
     weapon: 'Krallen',
-    info: 'TODO schatz c',
+    info: 'schatz c, Orgsg 3',
     attr: {
       tp: 20,
       ini: 0,
@@ -293,7 +294,7 @@ export const creatures = [{
   {
     name: 'Ghul',
     weapon: 'Klauen oder Biss',
-    info: 'TODO schatz c; krankheiten wundbrand potentiell',
+    info: 'schatz c; krankheiten wundbrand potentiell, Orgsg 6',
     attr: {
       tp: 40,
       ini: 0,
@@ -306,7 +307,7 @@ export const creatures = [{
   {
     name: 'Goblin',
     weapon: 'Dolch',
-    info: 'TODO schatz a',
+    info: 'schatz a, Orgsg 1',
     attr: {
       tp: 4,
       ini: 0,
@@ -318,7 +319,7 @@ export const creatures = [{
   {
     name: 'Harpyie',
     weapon: 'Krallen',
-    info: 'TODO freie magie 4; schatz e',
+    info: 'freie magie 4; schatz e, Orgsg 8',
     attr: {
       tp: 30,
       ini: 2,
@@ -334,7 +335,7 @@ export const creatures = [{
   {
     name: 'Kraken',
     weapon: 'Mehrfachangriff: acht Angriffe mit Tentakel',
-    info: 'TODO schatz e',
+    info: 'schatz e, Orgsg 8',
     attr: {
       tp: 120,
       ini: -2,
@@ -346,7 +347,7 @@ export const creatures = [{
   {
     name: 'Lindwurm',
     weapon: 'Krallen/Schwanz/Feueratem',
-    info: 'TODO Krallen 8/ 8Schwanz/Feueratem 12 (1.5m breiter Strahl 12m lang), freie magie bis 6, schwarze magie bis 2, schatz g',
+    info: 'Krallen 8/ 8Schwanz/Feueratem 12 (1.5m breiter Strahl 12m lang), freie magie bis 6, schwarze magie bis 2, schatz g, Orgsg 18',
     attr: {
       tp: 400,
       ini: 1,
@@ -362,7 +363,7 @@ export const creatures = [{
   {
     name: 'Meerechse',
     weapon: 'Biss',
-    info: 'TODO schatz c',
+    info: 'schatz c, Orgsg 5',
     attr: {
       tp: 50,
       ini: 2,
@@ -374,7 +375,7 @@ export const creatures = [{
   {
     name: 'Oger',
     weapon: 'Keule/Morgenstern/Flegel/Einhand-Axt (Schade nach Waffe)',
-    info: 'TODO schatz B',
+    info: 'schatz B, Orgsg 4',
     attr: {
       tp: 30,
       ini: -1,
@@ -386,7 +387,7 @@ export const creatures = [{
   {
     name: 'Ork',
     weapon: 'Kurzbogen/Morgenstern/Kurzschwert/Einhand-Axt (Schaden nach Waffe)',
-    info: 'TODO schatz b',
+    info: 'schatz b, Orgsg 2',
     attr: {
       tp: 12,
       ini: 0,
@@ -398,7 +399,7 @@ export const creatures = [{
   {
     name: 'Riese',
     weapon: 'Keule/Steine',
-    info: 'TODO schatz F / kb keule 15 / kb steine 8; riese steinwurf malus auf entfernung',
+    info: 'schatz F / kb keule 15 / kb steine 8; riese steinwurf malus auf entfernung, Orgsg 15',
     attr: {
       tp: 250,
       ini: -2,
@@ -410,7 +411,7 @@ export const creatures = [{
   {
     name: 'Riesenechse',
     weapon: 'Biss',
-    info: 'TODO schatz c',
+    info: 'schatz c, Orgsg 6',
     attr: {
       tp: 60,
       ini: 2,
@@ -422,7 +423,7 @@ export const creatures = [{
   {
     name: 'Riesenmoskitos',
     weapon: 'Stachel',
-    info: 'TODO 10 tiere',
+    info: '10 tiere, Orgsg 1',
     attr: {
       tp: 10,
       ini: 2,
@@ -435,7 +436,7 @@ export const creatures = [{
   {
     name: 'Riesenspinne',
     weapon: 'Stachel',
-    info: 'TODO schatz E; gift 3 runden lähmen / ms 10 befreien',
+    info: 'schatz E; gift 3 runden lähmen / ms 10 befreien, Orgsg 5',
     attr: {
       tp: 23,
       ini: 2,
@@ -448,7 +449,7 @@ export const creatures = [{
   {
     name: 'Skelett',
     weapon: 'Waffe, schaden nach waffe',
-    info: 'TODO schatz c',
+    info: 'schatz c, Orgsg 2',
     attr: {
       tp: 8,
       ini: 1,
@@ -460,7 +461,7 @@ export const creatures = [{
   {
     name: 'Troll',
     weapon: 'Keule/Morgenstern/Flegel/einhand-axt, Schaden nach waffe',
-    info: 'TODO schatz c',
+    info: 'schatz c, Orgsg 6',
     attr: {
       tp: 30,
       ini: 0,
@@ -473,7 +474,7 @@ export const creatures = [{
   {
     name: 'Wolf',
     weapon: 'Maul',
-    info: 'TODO ',
+    info: 'Orgsg 3',
     attr: {
       tp: 12,
       ini: 2,
@@ -486,7 +487,7 @@ export const creatures = [{
   {
     name: 'Zombie',
     weapon: 'Klauen',
-    info: 'TODO schatz c',
+    info: 'schatz c, Orgsg 2',
     attr: {
       tp: 20,
       ini: -2,
@@ -498,7 +499,7 @@ export const creatures = [{
   {
     name: 'Stadtwache',
     weapon: 'div. hier Kurzschwert',
-    info: 'TODO Schade nach waffe, schatz c',
+    info: 'Schade nach waffe, schatz c, Orgsg 3',
     attr: {
       tp: 30,
       ini: 0,
@@ -510,7 +511,7 @@ export const creatures = [{
   {
     name: 'Hauptmann',
     weapon: 'Langschwert',
-    info: 'TODO schatz d; begleitung 6 stadtwachen',
+    info: 'schatz d; begleitung 6 stadtwachen, Orgsg 5',
     attr: {
       tp: 50,
       ini: 1,
@@ -522,7 +523,7 @@ export const creatures = [{
   {
     name: 'Ritter',
     weapon: 'Langschwert',
-    info: 'TODO schatz e, reiten 4 streitross',
+    info: 'schatz e, reiten 4 streitross, Orgsg 8',
     attr: {
       tp: 88,
       ini: 0,
@@ -534,7 +535,7 @@ export const creatures = [{
   {
     name: 'Zauberlehrling',
     weapon: 'Dolch',
-    info: 'TODO schatz b',
+    info: 'schatz b, Orgsg 3',
     attr: {
       tp: 12,
       ini: -1,
@@ -548,7 +549,7 @@ export const creatures = [{
   {
     name: 'Weißer Zauberer',
     weapon: 'Dolch',
-    info: 'TODO schatz d',
+    info: 'schatz d, Orgsg 8',
     attr: {
       tp: 32,
       ini: 0,
@@ -562,7 +563,7 @@ export const creatures = [{
   {
     name: 'Wandernder Priester',
     weapon: 'Kriegshammer',
-    info: 'TODO schatz d, heiliges symbol',
+    info: 'schatz d, heiliges symbol, Orgsg 4',
     attr: {
       tp: 32,
       ini: 0,
@@ -576,7 +577,7 @@ export const creatures = [{
   {
     name: 'Illusionist',
     weapon: 'Schleuder',
-    info: 'TODO schatz d, gnom',
+    info: 'schatz d, gnom, Orgsg 6',
     attr: {
       tp: 24,
       ini: 1,
@@ -590,7 +591,7 @@ export const creatures = [{
   {
     name: 'Schwarzer Zauberer',
     weapon: 'Stab',
-    info: 'TODO schatz f',
+    info: 'schatz f, Orgsg 10',
     attr: {
       tp: 40,
       ini: 0,
@@ -604,7 +605,7 @@ export const creatures = [{
   {
     name: 'Taschendieb',
     weapon: 'Florett',
-    info: 'TODO (Halbling) schatz d, list 2',
+    info: '(Halbling) schatz d, list 2, Orgsg 2',
     attr: {
       tp: 14,
       ini: 2,
@@ -616,7 +617,7 @@ export const creatures = [{
   {
     name: 'Bandit',
     weapon: 'Flegel',
-    info: 'TODO schatz c',
+    info: 'schatz c, Orgsg 2',
     attr: {
       tp: 20,
       ini: 1,
@@ -628,7 +629,7 @@ export const creatures = [{
   {
     name: 'Assassine',
     weapon: 'Armbrust',
-    info: 'TODO Gifte, List 6, Athletik 6, schatz e',
+    info: 'Gifte, List 6, Athletik 6, schatz e, Orgsg 6',
     attr: {
       tp: 36,
       ini: 2,
@@ -640,7 +641,7 @@ export const creatures = [{
   {
     name: 'Spurenleser',
     weapon: 'Langbogen',
-    info: 'TODO schatz d, natur 3',
+    info: 'schatz d, natur 3, Orgsg 3',
     attr: {
       tp: 24,
       ini: 1,
@@ -653,7 +654,7 @@ export const creatures = [{
   {
     name: 'Hüter des Waldes',
     weapon: 'Langbogen',
-    info: 'TODO Elf, schatz e, heilkräuter, natur 5',
+    info: 'Elf, schatz e, heilkräuter, natur 5, Orgsg 6',
     attr: {
       tp: 46,
       ini: 2,
@@ -666,7 +667,7 @@ export const creatures = [{
   {
     name: 'Schildwache',
     weapon: 'Einhand-Axt',
-    info: 'TODO Zwerg, schatz e',
+    info: 'Zwerg, schatz e, Orgsg 4',
     attr: {
       tp: 48,
       ini: -1,
