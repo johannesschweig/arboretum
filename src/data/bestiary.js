@@ -704,3 +704,125 @@ export const base = {
   sensitive: 0,
   vulnerable: 0
 }
+
+export const myCreatures = [
+  {
+    name: 'Flanna',
+    weapon: '',
+    info: 'Rang 4 Schamenmagie',
+    attr: {
+      tp: 20,
+      ini: 0,
+      kb: 3,
+      rb: 6,
+      s: -1,
+      spelll:  4,
+      mp: 12
+    }
+  },
+  {
+    name: 'Ronan',
+    weapon: 'Dolch',
+    info: '',
+    attr: {
+      tp: 12,
+      ini: 0,
+      kb: 3,
+      rb: 6,
+      s: -1
+    }
+  },
+  {
+    name: 'Skelett',
+    weapon: 'Kurzschwert',
+    info: '',
+    attr: {
+      tp: 20,
+      ini: 1,
+      kb: 4,
+      rb: 6,
+      s: 1,
+      magres: 1
+    }
+  },
+  {
+    name: 'Skelettfürst',
+    weapon: '',
+    info: '',
+    attr: {
+      tp: 45,
+      ini: 2,
+      kb: 4,
+      rb: 7,
+      s: 2,
+      fear: 1
+    }
+  },
+  {
+    name: 'Riesenskorpion',
+    weapon: '',
+    info: 'behäbig, 3x1TP Schaden. Mehrere Treffer stacken und erhöhen den Schaden 1-2-4-8-12',
+    attr: {
+      tp: 16,
+      ini: 0,
+      kb: 2,
+      rb: 6,
+      s: 0,
+      venom: 1
+    }
+  },
+  {
+    name: 'Schwarzer Skorpion',
+    weapon: '',
+    info: 'gift verursacht 1/3 tp schaden pro runde/stunde; wenn man sich nicht bewegt, nur pro tag. das gift klingt nach 4 Ticks oder 6 Stunden ab.',
+    attr: {
+      tp: 4,
+      ini: 0,
+      kb: 0,
+      rb: 6,
+      s: -3,
+      venom: 3
+    }
+  },
+  {
+    name: 'Geier',
+    weapon: '',
+    info: '',
+    attr: {
+      tp: 12,
+      ini: 1,
+      kb: 2,
+      rb: 6,
+      s: 0,
+      flying: 1
+    }
+  },
+  {
+    name: 'Ork',
+    weapon: 'Kurzbogen(S-1)/morgenstern(S1)/Kurzschwert(S-1)/Einhand-Axt(S0)',
+    info: '',
+    attr: {
+      tp: 12,
+      ini: 0,
+      kb: 3,
+      rb: 7,
+      s: 0
+    }
+  },
+  {
+    name: 'Ork Schamane',
+    weapon: 'Stab',
+    info: 'Rang 3 Schamenmagie Heilen, Trance, Heiliger Bezirk',
+    attr: {
+      tp: 20,
+      ini: 0,
+      kb: 4,
+      rb: 6,
+      s: 0,
+      mp: 20,
+      spelll: 3
+    }
+  },
+]
+
+export const allCreatures = creatures.concat(myCreatures)

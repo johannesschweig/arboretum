@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { base, alias, creatures } from '../data/bestiary'
+import { base, alias, allCreatures } from '../data/bestiary'
 import { getKP, getSG } from '../utils'
 
 Vue.use(Vuex)
@@ -99,9 +99,9 @@ export default new Vuex.Store({
     // payload: name of creature
     batchSet ({ commit }, payload) {
       // find creature
-      let i = creatures.map(c => c.name).indexOf(payload)
+      let i = allCreatures.map(c => c.name).indexOf(payload)
       if (i != -1) {
-        let creature = creatures[i].attr
+        let creature = allCreatures[i].attr
         // effective attr
         let eff = {
           ...base,
