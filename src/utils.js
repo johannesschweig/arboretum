@@ -22,8 +22,35 @@ function getAttrPiece(obj) {
   return str
 }
 
-export function getAttrString(attr) {
-    // <p>TODO ♥ {{attr.tp}} / INI 0 / KB 3 / 🛡 6 / 🗡 -1 / MP 12 / Spruchl 4 / SG4</p>
+function getMoney(kl) {
+  if (!kl) {
+    return '0'
+  } else if (kl < 10) {
+    return `${Math.round(kl)} KL`
+  } else if (kl < 100) {
+    return `${Math.round(kl/10)} TT`
+  } else if (kl < 100000) {
+    return `${Math.round(kl/100)} GF`
+  } else {
+    return `${Math.round(kl/100000)} kGF`
+  }
+}
+
+function getTreasure(sg) {
+  if (!sg) {
+    return {
+      type: 'A',
+      val: 0
+    }
+  }
+  let t = (57.5306 * Math.pow(sg, 0.0461748)) - 58.4278
+  return {
+    type: 'ABCDEFG'[Math.round(t-1)],
+    val: getMoney(Math.pow(10, t-1))
+  }
+}
+
+export function getAttrString(attr, sg) {
   let str = ''
   for(let i = 0; i < alias.length; i++) {
     str += getAttrPiece({
@@ -31,7 +58,9 @@ export function getAttrString(attr) {
       attr: attr[alias[i].short]
     })
   }
-  return str
+  // calculate treasure
+  let treasure = getTreasure(sg)
+  return str += `SG ${sg} / Schatz ${treasure.val} (${treasure.type})`
 }
 
 export function getKP(attr, mod) {

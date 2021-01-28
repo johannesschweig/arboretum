@@ -42,7 +42,7 @@ export default {
       attr: state => state.attr
     }),
     attrString() {
-      return getAttrString(this.attr)
+      return getAttrString(this.attr, this.sg)
     },
     formattedSg() {
       let decimal
