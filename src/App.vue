@@ -12,6 +12,8 @@
   color: #2c3e50;
   margin: 12px;
   max-width: 1200px;
+  --highlight: #c4a63c;
+  --bg-light: #f6f4ee;
 }
 
 </style>

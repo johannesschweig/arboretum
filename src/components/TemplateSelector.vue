@@ -1,20 +1,38 @@
 <template>
   <div class='container'>
-    <h3
-      @click='infoVis = !infoVis'>
-      Kreaturen
-    </h3>
-    <button
-      v-for='(c, i) in creatures'
-      :key='i'
-      class='tooltip'
-      @click='setTemplate(c)'>
-      {{ c.name }}
-    </button>
-    <p
-      v-show='infoVis'>
-      {{ info }}
-    </p>
+    <div>
+      <div
+        :class='["tabbutton", {"active": tab === 1}]'
+        @click='tab = 1'>
+        Aborea-Kreaturen
+      </div>
+      <div
+        :class='["tabbutton", {"active": tab === 2}]'
+        @click='tab = 2'>
+        Meine Kreaturen
+      </div>
+    </div>
+    <!-- first tab -->
+    <div
+      v-if='tab === 1'
+      class='tab'>
+      <button
+        v-for='(c, i) in creatures'
+        :key='i'
+        class='tooltip'
+        @click='setTemplate(c)'>
+        {{ c.name }}
+      </button>
+      <p>
+        <i>Info:</i> {{ info }}
+      </p>
+    </div>
+    <!-- second tab -->
+    <div
+      v-if='tab === 2'
+      class='tab'>
+      second tab
+    </div>
   </div>
 </template>
 
@@ -27,7 +45,7 @@ export default {
     return {
       creatures,
       info: '',
-      infoVis: false
+      tab: 1
     }
   },
   methods: {
@@ -44,6 +62,36 @@ export default {
 
 <style scoped>
 .container {
-  margin-bottom: 24px;
+  margin: 48px 0;
+}
+
+.tabbutton {
+  display:inline-block;
+  font-size: 18px;
+  opacity: .7;
+  width: 150px;
+  text-align: center;
+  padding: 12px 24px;
+}
+
+.tabbutton:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.tabbutton.active {
+  border-width: 0 0 2px 0;
+  border-style: solid;
+  border-color: var(--highlight);
+  opacity: 1;
+}
+
+.tab {
+  padding: 12px;
+  background-color: var(--bg-light);
+}
+
+.tab > p {
+  margin-bottom: 0px;
 }
 </style>

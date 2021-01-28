@@ -68,7 +68,6 @@ input[type='number'] {
 }
 
 .highlight {
-  --highlight: #3584e4;
   -webkit-box-shadow: 0px 0px 0px 1px var(--highlight);
   -moz-box-shadow: 0px 0px 0px 1px var(--highlight);
   box-shadow: 0px 0px 0px 1px var(--highlight);
