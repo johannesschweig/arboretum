@@ -733,7 +733,7 @@ export const myCreatures = [
     }
   },
   {
-    name: 'Skelett',
+    name: 'Skelett(s)',
     weapon: 'Kurzschwert',
     info: '',
     attr: {
